@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PokeApi</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+        integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <div class="bg-color container">
+        <header class="header container flex">
+            <img class="logo" src="./imgs/Pokémon_logo.svg.png" alt="logo">
+            <div>
+                <ul class="navbar flex">
+                    <li class="nav">Search</li>
+                    <li class="nav">Favorites</li>
+                </ul>
+            </div>
+        </header>
+
+        <div class="content">
+            <div class="container">
+                <div class="search-box">
+                    <input id="search-bar" class="poke-search" onkeyup="search_pokemon()"
+                        placeholder="Search Pokemon..." />
+                </div>
+                <div id="poke-card"></div>
+            </div>
+        </div>
+
+        <div class="pokemon-details">
+            <button type="button" class="btnrecipe-close-btn" id="recipe-close-btn">
+                <i class="fas fa-times"></i>
+            </button>
+
+            <div class="poke-details">
+
+
+                <div class="pagination flex container">
+                    <span class="previous">prev</span><input class="input-page" type="text"><span
+                        class="next">next</span>
+                </div>
+            </div>
+
+
+
+        </div>
+
+        <script>
+
+            /////////////////////////////////////////////////////////////// search
+            function search_pokemon() {
+                let input = document.getElementById('search-bar').value
+                input = input.toLowerCase()
+
+                let x = document.getElementsByClassName('card')
+
+                for (i = 0; i < x.length; i++) {
+                    if (!x[i].innerHTML.toLowerCase().includes(input)) {
+                        x[i].style.display = "none"
+                    } else { x[i].style.display = "flex" }
+                }
+            }
+        </script>
+
+        <script src="./script.js"></script>
+</body>
+
+</html>

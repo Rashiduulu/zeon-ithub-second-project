@@ -1,0 +1,1 @@
+const pokedex = document.getElementById("")
